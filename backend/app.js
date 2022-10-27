@@ -70,9 +70,6 @@ app.use('/movies', require('./routes/movies'));
 app.use('/users', require('./routes/users'));
 
 mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
 });
 
 app.use(() => {

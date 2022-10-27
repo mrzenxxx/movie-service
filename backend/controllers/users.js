@@ -90,20 +90,6 @@ module.exports.updateProfile = (req, res, next) => {
     });
 };
 
-// module.exports.updateAvatar = (req, res, next) => {
-//   const { avatar } = req.body;
-//
-//   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
-//     .then((newUser) => res.send(newUser))
-//     .catch((err) => {
-//       if (err.name === 'ValidationError') {
-//         next(new SomeWentWrongError('Некорректные данные'));
-//       } else {
-//         next(err);
-//       }
-//     });
-// };
-
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   let saveUser = {};

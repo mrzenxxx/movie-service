@@ -8,11 +8,10 @@ const {
   getUser,
   getCurrentUser,
   updateProfile,
-  updateAvatar,
 } = require('../controllers/users');
 
 // GET /users — возвращает всех пользователей
-router.get('/', getUsers);
+router.get('/', getUser);
 
 // GET /users/me - возвращает информацию о текущем пользователе
 router.get('/me', getCurrentUser);
@@ -28,15 +27,8 @@ router.get('/:userId', celebrate({
 router.patch('/me', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    email: Joi.string().min(2).max(30),
   }),
 }), updateProfile);
-
-// PATCH /users/me/avatar — обновляет аватар
-router.patch('/me/avatar', celebrate({
-  body: Joi.object().keys({
-    avatar: Joi.string().required().regex(linkRule),
-  }),
-}), updateAvatar);
 
 module.exports = router;
