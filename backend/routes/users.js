@@ -7,13 +7,7 @@ const {
   updateProfile,
 } = require('../controllers/users');
 
-router.get('/users/me', celebrate({
-  params: Joi.object().keys({
-    // ЧТО ЗДЕСЬ ПИСАТЬ?
-    user: Joi.string().length(32).hex().required(),
-  }),
-}),
-getUser);
+router.get('/me', getUser);
 
 router.patch('/users/me', celebrate({
   body: Joi.object().keys({

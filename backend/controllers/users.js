@@ -22,7 +22,7 @@ if (!secret && process.env.NODE_ENV === 'production') {
 }
 
 module.exports.getUser = (req, res, next) => {
-  User.findById(req.params.userId)
+  User.findById(req.user._id)
     .orFail(() => {
       throw new NotFoundError('Пользователь не найден');
     })
@@ -70,7 +70,6 @@ module.exports.createUser = (req, res, next) => {
     .catch(next);
 };
 
-// TODO переработать или убрать
 module.exports.updateProfile = (req, res, next) => {
   const { name, email } = req.body;
 
