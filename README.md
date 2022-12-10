@@ -5,6 +5,6 @@
 
 IP: 84.252.137.200
 
-Фронт: https://kmariasha.nomoredomains.sbs
+Фронтенд: https://kmariasha.nomoredomains.sbs
 
-Бекенд (АПИ): https://api.domainname.kmariasha.nomoredomains.sbs
+Бекенд: https://api.domainname.kmariasha.nomoredomains.sbs
