@@ -5,11 +5,8 @@ const NotFoundError = require('../errors/not-found-err');
 const AccessDeniedError = require('../errors/access-denied-err');
 
 module.exports.getMovies = async (req, res) => {
-  const movies = await Movie.find({
-    where: {
-      owner : { _id : req.user._id },
-    },
-  })
+  const movies = await Movie.find({})
+    .where('owner').equals(req.user._id)
     .populate(['owner']);
 
   res.send(movies);
